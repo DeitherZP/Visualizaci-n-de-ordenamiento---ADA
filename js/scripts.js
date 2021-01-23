@@ -61,7 +61,7 @@ function InsertSort(){
     var j;
     var aux;
     for(var i = 0; i < ArrayInsertSort.length; i++){
-        animaInsertSort();
+        animaInsertSort(i);
         j = i - 1;
         while((j >= 0) && (aux < ArrayInsertSort[j])){
             ArrayInsertSort[j + 1] = ArrayInsertSort[j];
