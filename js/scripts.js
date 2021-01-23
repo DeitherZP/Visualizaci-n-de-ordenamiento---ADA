@@ -25,6 +25,8 @@ function GeneraArreglo(){
     MostrarArrayIS();
     MostrarArrayMS();
     activarboton();
+    var boton = document.querySelectorAll(".styleboton");
+    boton[1].disabled = true;
 }
 
 function activarboton(){
@@ -50,19 +52,20 @@ function MostrarArrayMS(){
     }
 }
 
-function animaInsertSort(index){
-    var ArrayIS = document.querySelectorAll(".txtIS");
-    var posicion = ArrayIS[index].getBoundingClientRect();
+function animaInsertSort(arr, index){
+    var Array = document.querySelectorAll(arr);
+    var posicion = Array[index].getBoundingClientRect();
     var t = setInterval(desplaza, 10);
     var pos = 0;
     function desplaza(){
-        if(pos >= (-(posicion.top - posicion.bottom) + 5)){
+        if(pos >= (-(posicion.top - posicion.bottom)) - 10){
             clearInterval(t);
         } else{
             pos++;
-            ArrayIS[index].style.top = pos+'px';
+            Array[index].style.top = pos+'px';
         }
     }
+    Array[index].style.background = "aqua";
 }
 
 function recorre(index){
@@ -87,7 +90,7 @@ function InsertSort(){
     var aux;
     for(var i= 0; i < ArrayInsertSort.length; i++){
         aux = ArrayInsertSort[i];
-        animaInsertSort(i);
+        animaInsertSort(".txtIS", i);
         j = i - 1;
         while((j >= 0) && (aux < ArrayInsertSort[j])){
             ArrayInsertSort[j + 1] = ArrayInsertSort[j];
@@ -147,6 +150,9 @@ function MergeSort(ArrayMergeSort, Izquierda, Mitad, Derecha){
         ArrayMergeSort[k] = ArrayDerecho[j];
         j++;
         k++;
+    }
+    for(var i = 0; i < ArrayMergeSort.length; i++){
+        animaInsertSort(".txtMS", i);
     }
     MostrarArrayMS();
 }
