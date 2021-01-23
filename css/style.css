@@ -24,7 +24,7 @@ section{
 #Insert-Sort{
     text-align: center;
     width: 30%;
-    background-color: rgba(37, 0, 46, 0.76);
+    background-color: rgba(0, 0, 0, 0.493);
     border-radius: 5px;
 }
 
@@ -32,7 +32,7 @@ section{
     text-align: center;
     width: 30%;
     border-radius: 5px;
-    background-color: rgba(37, 0, 46, 0.76);
+    background-color: rgba(0, 0, 0, 0.493);
 }
 
 .array{
@@ -51,6 +51,8 @@ section{
     border: none;
     cursor: default;
     outline: none;
+    background-color: red;
+    position: relative;
 }
 
 .txtIS{
@@ -62,6 +64,8 @@ section{
     border: none;
     cursor: default;
     outline: none;
+    background-color: red;
+    position: relative;
 }
 
 .styleboton{
@@ -70,14 +74,15 @@ section{
     padding: 0.5em;
     font-size: 15px;
     font-family: cursive;
-    background-color: rgba(255, 255, 255, 0.733);
+    background-color: rgba(50, 252, 0, 0.575);
     border-color: rgb(37, 37, 37);
     border-radius: 1em;
     outline: none;
+    border-radius: 5px;
 }
 
 .styleboton:hover{
-    background-color:  white;
+    background-color:  rgb(50, 252, 0);
     cursor: pointer;
 }
 
@@ -89,14 +94,14 @@ section{
     margin-top: 10%;
 }
 
-@media (max-width: 900px) {
+@media(max-width: 900px){
     section{
         display: flex;
         flex-direction: column;
     }
 
     .array{
-        height: 13%;
+        height: 17%;
         width: 60%;
     }
 

@@ -5,8 +5,8 @@ var ArrayMergeSort = new Array(6);
 
 function GeneraArreglo(){
     var i = 0;
-    while(i != 6){
-        var numero = Math.floor(Math.random() * 10) + 1;
+    while(i != ArrayInsertSort.length){
+        var numero = Math.floor(Math.random() * 6) + 1;
         var esRepetido = false;
         while(!esRepetido){
             for(var j = 0; j < i; j++){
@@ -42,11 +42,26 @@ function MostrarArrayMS(){
     }
 }
 
+function animaInsertSort(index){
+    var ArrayIS = document.querySelectorAll(".txtIS");
+    var posicion = ArrayIS[index].getBoundingClientRect();
+    var t = setInterval(move, 10);
+    var pos = 0;
+    function move(){
+        if(pos >= (-(posicion.top - posicion.bottom) + 5)){
+            clearInterval(t);
+        } else{
+            pos++;
+            ArrayIS[index].style.top = pos+'px';
+        }
+    }
+}
+
 function InsertSort(){
     var j;
     var aux;
     for(var i = 0; i < ArrayInsertSort.length; i++){
-        aux = ArrayInsertSort[i];
+        animaInsertSort();
         j = i - 1;
         while((j >= 0) && (aux < ArrayInsertSort[j])){
             ArrayInsertSort[j + 1] = ArrayInsertSort[j];
@@ -54,7 +69,6 @@ function InsertSort(){
         }
         ArrayInsertSort[j + 1] = aux;
     }
-    MostrarArrayIS();
 }
 
 function LlamaMergeSort(){
@@ -105,5 +119,4 @@ function MergeSort(ArrayMergeSort, Izquierda, Mitad, Derecha){
         k++;
     }
     MostrarArrayMS();
-    console.log("exitoso");
 }
