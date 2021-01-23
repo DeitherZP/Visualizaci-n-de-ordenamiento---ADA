@@ -24,6 +24,14 @@ function GeneraArreglo(){
     }
     MostrarArrayIS();
     MostrarArrayMS();
+    activarboton();
+}
+
+function activarboton(){
+    var boton = document.querySelectorAll(".styleboton");
+    for(var i = 0; i < boton.length; i++){
+        boton[i].disabled = false;
+    }
 }
 
 function MostrarArrayIS(){
@@ -45,9 +53,9 @@ function MostrarArrayMS(){
 function animaInsertSort(index){
     var ArrayIS = document.querySelectorAll(".txtIS");
     var posicion = ArrayIS[index].getBoundingClientRect();
-    var t = setInterval(move, 10);
+    var t = setInterval(desplaza, 10);
     var pos = 0;
-    function move(){
+    function desplaza(){
         if(pos >= (-(posicion.top - posicion.bottom) + 5)){
             clearInterval(t);
         } else{
@@ -57,18 +65,38 @@ function animaInsertSort(index){
     }
 }
 
+function recorre(index){
+    var ArrayIS = document.querySelectorAll(".txtIS");
+    var posicion = ArrayIS[index].getBoundingClientRect();
+    var t = setInterval(desplaza, 10);
+    var pos = 0;
+    function desplaza(){
+        if(pos >= (-(posicion.left - posicion.right))){
+            clearInterval(t);
+        } else{
+            pos++;
+            ArrayIS[index].style.left = pos+'px';
+        }
+    }
+}
+
 function InsertSort(){
+    var boton = document.querySelectorAll(".styleboton");
+    boton[0].disabled = true;
     var j;
     var aux;
-    for(var i = 0; i < ArrayInsertSort.length; i++){
+    for(var i= 0; i < ArrayInsertSort.length; i++){
+        aux = ArrayInsertSort[i];
         animaInsertSort(i);
         j = i - 1;
         while((j >= 0) && (aux < ArrayInsertSort[j])){
             ArrayInsertSort[j + 1] = ArrayInsertSort[j];
+            //recorre(j);
             j--;
         }
         ArrayInsertSort[j + 1] = aux;
     }
+    MostrarArrayIS();
 }
 
 function LlamaMergeSort(){
@@ -85,6 +113,8 @@ function Divide(ArrayMergeSort, Izquierda, Derecha){
 }
 
 function MergeSort(ArrayMergeSort, Izquierda, Mitad, Derecha){
+    var boton = document.querySelectorAll(".styleboton");
+    boton[2].disabled = true;
     var Arr1 = Mitad - Izquierda + 1;
     var Arr2 = Derecha - Mitad;
     var ArrayIzquierdo = new Array(Arr1);

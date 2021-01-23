@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>Visualización de ordenamientos - ADA</title>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
     </head>
     <body>
-        <section id="hw">
+        <section>
                 <div id="Insert-Sort">
                     <p class="titulo">Insert Sort</p>
                     <div class="array">
@@ -20,7 +21,7 @@
                         <input type="text" class="txtIS" readonly>
                     </div>
                     <div class="boton">
-                        <input type="button" value="Ordenar" class="styleboton" onclick="InsertSort();">
+                        <input type="button" value="Ordenar" class="styleboton" disabled=true onclick="InsertSort();">
                     </div>
                 </div>
                     <input type="button" value="Generar Arreglo" class="styleboton" onclick="GeneraArreglo();">
@@ -35,7 +36,7 @@
                         <input type="text" class="txtMS" readonly>
                     </div>
                     <div class="boton">
-                        <input type="button" value="Ordenar" class="styleboton" onclick="LlamaMergeSort();">
+                        <input type="button" value="Ordenar" class="styleboton" disabled=true onclick="LlamaMergeSort();">
                     </div>
                 </div>
         </section>
