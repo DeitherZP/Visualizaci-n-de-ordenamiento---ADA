@@ -12,14 +12,14 @@ function GeneraArreglo(){
         var esRepetido = false;
         while(!esRepetido){
             for(var j = 0; j < i; j++){
-		//Comprubea si no existen números repetidos en el array
-		//Esto para que el arreglo no tenga números repetidos
+		        //Comprubea si no existen números repetidos en el array
+		        //Esto para que el arreglo no tenga números repetidos
                 if(numero == ArrayInsertSort[j]){
                     esRepetido = true;
                     break;
                 }
             }
-	    //SI no encuentra nuemeros repetidos, procede almacenarlos en sus respectivos array
+	        //SI no encuentra nuemeros repetidos, procede almacenarlos en sus respectivos array
             if(!esRepetido){
                 ArrayInsertSort[i] = numero;
                 ArrayMergeSort[i] = numero;
@@ -34,7 +34,7 @@ function GeneraArreglo(){
     //Lama al metodo que permite activar los botones
     activarboton();
 
-    /Bloquea el boton de "Generar arreglo" esto para impedir cambios durante la anumación
+    //Bloquea el boton de "Generar arreglo" esto para impedir cambios durante la anumación
     var boton = document.querySelectorAll(".styleboton");
     boton[1].disabled = true;
 }
